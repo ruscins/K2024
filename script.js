@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Dienu dati - definējiet saites tikai tām dienām, kurām tās ir
     const dayData = {
-        1: { image: 'day-1.jpg', link: 'https://www.liepaja.biblioteka.lv' },
+        1: { image: 'day-1.jpg', link: 'https://liepaja.biblioteka.lv/Alise/lv/home.aspx' },
         2: { image: 'day-2.jpg' },
         3: { image: 'day-3.jpg' },
         4: { image: 'day-4.jpg', link: 'https://example.com/day4' },
