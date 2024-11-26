@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="lv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Adventes Kalendārs</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="background">
+        <div class="music-control" id="music-toggle">🎵 Mūzika</div>
+        <div class="calendar-grid">
+            <!-- Šeit tiks dinamiski ģenerētas dienu pogas -->
+        </div>
+    </div>
+
+    <div class="popup-container">
+        <div class="popup-content">
+            <span class="close-popup">&times;</span>
+            <div class="popup-image-container">
+                <img id="popup-image" src="" alt="Dienas attēls">
+            </div>
+            <!-- Saite tiks pievienota dinamiski ar JavaScript -->
+        </div>
+    </div>
+
+    <audio id="background-music" loop>
+        <source src="christmas-music.mp3" type="audio/mpeg">
+        Jūsu pārlūks neatbalsta audio elementu.
+    </audio>
+
+    <script src="script.js"></script>
+</body>
+</html>
