@@ -1,9 +1,18 @@
-/* Responsīvs kalendāra dizains */
+/* Viewport un responsivitātes iestatījumi */
+html {
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+}
+
 body {
     margin: 0;
     padding: 0;
     font-family: 'Arial', sans-serif;
+    touch-action: manipulation; /* Novērš dubultklikšķa zoom */
 }
+
+/* Viewport meta tags - pievienojiet HTML failā */
+/* <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"> */
 
 .background {
     background-image: url('background.jpg');
@@ -19,35 +28,47 @@ body {
 
 .calendar-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
-    gap: 10px;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 15px;
     width: 100%;
     max-width: 1200px;
+    padding: 10px;
 }
 
 .calendar-day {
     aspect-ratio: 1;
     background-color: rgba(255, 255, 255, 0.7);
-    border-radius: 10px;
+    border-radius: 15px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 18px;
+    font-size: 24px;
     cursor: pointer;
     transition: all 0.3s ease;
-    min-height: 80px;
+    min-height: 100px;
+    
+    /* Touch-friendly improvements */
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
 }
 
-.calendar-day:hover {
-    transform: scale(1.05);
-    background-color: rgba(255, 255, 255, 0.9);
+.calendar-day:active {
+    transform: scale(0.95);
+    background-color: rgba(200, 200, 200, 0.7);
 }
 
 .music-control {
     position: fixed;
-    top: 10px;
-    right: 10px;
+    top: 20px;
+    right: 20px;
     z-index: 100;
+    font-size: 24px; /* Lielāks fonts */
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
 }
 
 .popup-container {
@@ -56,16 +77,18 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: rgba(0, 0, 0, 0.9);
     display: none;
     justify-content: center;
     align-items: center;
     z-index: 1000;
+    touch-action: none;
 }
 
 .popup-content {
     position: relative;
-    max-width: 90%;
+    width: 95%;
+    max-width: 95%;
     max-height: 90%;
     display: flex;
     flex-direction: column;
@@ -74,11 +97,13 @@ body {
 
 .close-popup {
     position: absolute;
-    top: -30px;
+    top: -40px;
     right: 0;
     color: white;
-    font-size: 30px;
+    font-size: 40px;
     cursor: pointer;
+    padding: 10px; /* Lielāka klikšķa zona */
+    z-index: 1001;
 }
 
 #popup-image {
@@ -90,18 +115,21 @@ body {
 /* Īpaši mazi ekrāni */
 @media (max-width: 480px) {
     .calendar-grid {
-        grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
-        gap: 5px;
+        grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+        gap: 10px;
     }
 
     .calendar-day {
-        font-size: 16px;
-        min-height: 60px;
+        font-size: 20px;
+        min-height: 80px;
+        border-radius: 10px;
     }
 
     .music-control {
-        top: 5px;
-        right: 5px;
+        top: 10px;
+        right: 10px;
+        font-size: 20px;
+        padding: 8px;
     }
 }
 
@@ -112,7 +140,7 @@ body {
     }
 
     .calendar-day {
-        font-size: 20px;
+        font-size: 22px;
         min-height: 100px;
     }
 }
@@ -124,7 +152,7 @@ body {
     }
 
     .calendar-day {
-        font-size: 24px;
+        font-size: 26px;
         min-height: 120px;
     }
 }
